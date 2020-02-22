@@ -1,13 +1,13 @@
  const mongoose = require('mongoose');
 
-var userSchema = new mongoose.Schema({
+let userSchema = new mongoose.Schema({
     name: String,
     username: String
   });
 
 function createUser(name, username){
-    var User = mongoose.model('users', userSchema);
-    var newUser = new User({ name: name, username: username });
+    let User = mongoose.model('users', userSchema);
+    let newUser = new User({ name: name, username: username });
 
     newUser.save(function (err, newUser) {
         if (err) {

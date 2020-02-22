@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bread blogs</title>
+</head>
+<body>
+    <h1>Create new blog</h1>
+    <form action="/blog/create" method="POST">
+    
+        <label for="title">title</label>
+        <input type="text" name="title">
+<br>
+        <label for="author">author</label>
+        <input type="text" name="author" value="the admin">
+<br>
+        <label for="content">content</label>
+        <textarea id="blog-content" name="content" cols="30" rows="10"></textarea>
+<br>
+        <label for="tags">tags</label>
+        <input type="text" name="tags" value="testTag">
+<br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
