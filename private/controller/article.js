@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const articleRepository = require('../repository/articleRepository.js');
 
 router.get('/read/:articleId', async function(req, res, next){
@@ -37,9 +38,20 @@ router.post('/create', async function(req, res, next){
         hidden: 'false'
     };
 
+
+    let articleModel = mongoose.model('articles', articleRepository.articleSchema);
+    let newArticle = new articleModel(article);
+
     try{
-        let createArticle = await articleRepository.createArticle(article);
-        res.send({message: `article entry created`, article});
+        await newArticle.save(function (err, response) {
+            if (err) {
+                throw err;
+            }
+            console.log('article created', response);
+            res.send({ message: `article entry created`, response });
+        });
+
+        
 
     } catch(err) {
         console.error(err)
