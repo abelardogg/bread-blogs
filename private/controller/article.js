@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const blogRepository = require('../repository/blogRepository.js');
+const articleRepository = require('../repository/articleRepository.js');
 
 router.get('/create', function(req, res, next){
-   
-    res.render('blog/create');
+    res.render('article/create');
 });
 
 router.post('/create', async function(req, res, next){
-    let blog = {
+    let article = {
         title: req.body.title,
         author: req.body.author,
         content: req.body.content,
@@ -17,12 +16,12 @@ router.post('/create', async function(req, res, next){
     };
 
     try{
-        let createBlogEntry = await blogRepository.createBlogEntry(blog);
-        res.send({message: `blog entry created`, blog});
+        let createArticle = await articleRepository.createArticle(article);
+        res.send({message: `article entry created`, article});
 
     } catch(err) {
         console.error(err)
-        res.send({message: "error while trying to creating blog entry"})
+        res.send({message: "error while trying to creating article entry"})
     }
 
 });
