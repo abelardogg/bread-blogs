@@ -8,7 +8,25 @@
 
 <body>
     <%- include('../navbar.html', {active: 'article-create'}); %>
-    <h1>Create new blog</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h1 id="article-title"><%= title %></h1>
+            </div>
+            <div class="col s12">
+                <p id="article-date">
+                    <span><%= date %></span>
+                </p>
+            </div>
+            <div class="col s12">
+                <p id="article-content">
+                    <span><%= content %></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <%- include('../assets/materialize-js.html', {}); %>
 </body>
 
