@@ -11,7 +11,20 @@
     <%- include('navbar.html', {active: 'archive'}); %>
 
     <div class="container">
-
+        <div class="row">
+            <div class="col s12">
+                <h1>Archive</h1>
+            </div>
+        </div>
+        <div class="row">
+            <% articlesList.forEach(function(article){ %>
+            <div class="col s12">
+                <a href="<%= '/article/read/'+article.articleId %>">
+                    <%= article.title %>
+                </a>
+            </div>
+            <% }); %>
+        </div>
     </div>
 
     <%- include('assets/materialize-js.html', {}); %>
