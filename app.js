@@ -19,6 +19,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 require('./private/router/main-router.js')(app);
 
+app.use(function(req, res, next) {
+  res.status(404);
+  res.render('404');
+});
+
 app.listen(process.env.PORT || 3000, function(){
     console.log('Express server listening on port %d in %s mode', this.address().port, app.settings.env);
 });

@@ -1,0 +1,20 @@
+<nav class="nav-extended blue darken-1">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">
+            <img src="icons/breadBlog-logo-white-transparentbg.svg" alt="the bread blog logo" class="img">
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+    <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+            <li class="tab"><a href="/" class="<%= active=='home' ? 'active' : ''%>">Home</a></li>
+            <li class="tab"><a href="/archive" class="<%= active=='archive' ? 'active' : ''%>">Archive</a></li>
+            <li class="tab"><a href="/about" class="<%= active=='about' ? 'active' : ''%>">About</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="/archive">Archive</a></li>
+    <li><a href="/about">About</a></li>
+</ul>
