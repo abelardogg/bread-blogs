@@ -5,9 +5,12 @@ let articleSchema = new mongoose.Schema({
     title: String,
     shortDescription: String,
     author: String,
+    createdBy: String,
+    updatedBy: String,
     content: String,
     tags: String,
-    date: String,
+    dateCreated: String,
+    dateUpdate: String,
     hidden: String
 });
 

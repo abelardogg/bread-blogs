@@ -8,25 +8,30 @@
 
 <body>
     <%- include('../navbar.html', {active: 'article-create'}); %>
-
+    
+<% if (!error) { %>
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h1 id="article-title"><%= title %></h1>
+                <h1 id="article-title"><%= article.title %></h1>
             </div>
             <div class="col s12">
                 <p id="article-date">
-                    <span><%= date %></span>
+                    <span><%= article.date %></span>
                 </p>
             </div>
             <div class="col s12">
                 <p id="article-content">
-                    <span><%= content %></span>
+                    <span><%= article.content %></span>
                 </p>
             </div>
         </div>
     </div>
+<% } %>
 
+<% if (error) { %>
+    <h3><%= error %></h3>
+<% } %>
     <%- include('../assets/materialize-js.html', {}); %>
 </body>
 
