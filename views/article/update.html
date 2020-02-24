@@ -17,8 +17,8 @@
             <h6>Article ID:  <%= article.articleId %></h6>
           </div>
     
-          <form class="col s12" action="/article/create" method="POST">
-    
+          <form class="col s12" action="/article/update" method="POST">
+            <input type="text" name="articleId" value="<%= article.articleId %>">
             <div class="row">
               <div class="input-field col s12">
                 <input placeholder="The bread is the best thing ever!" id="title" name="title" type="text" class="validate" value="<%= article.title %>" required disabled>
@@ -43,7 +43,7 @@
     
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="new-article-content" name="content" class="materialize-textarea" required disabled>
+                <textarea id="new-article-content" name="content" class="materialize-textarea" required ----disabled>
                     <%= article.content %>
                 </textarea>
                 <label for="content">Content</label>

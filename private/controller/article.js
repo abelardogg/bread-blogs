@@ -57,9 +57,6 @@ router.post('/create', async function(req, res, next){
             console.log('article created', response);
             res.send({ message: `article entry created`, response });
         });
-
-        
-
     } catch(err) {
         console.error(err)
         res.send({message: "error while trying to creating article entry"})
@@ -83,6 +80,25 @@ router.get('/update/:articleId', async function(req,res,next){
     } catch (error) {
         console.error(error);
         res.send({error: 'something went wrong'});
+    }
+});
+
+router.post('/update', async function(req, res){
+    const filter ={articleId: req.body.articleId};
+    const articleUpdateDate = Date();
+    const updateData = {
+        content: req.body.content,
+        dateUpdate: articleUpdateDate
+    };
+    const options = {new: true};
+    const article = mongoose.model('articles', articleRepository.articleSchema);
+
+    try {
+        let updatedArticle = await article.findOneAndUpdate(filter, updateData, options);
+        res.send(updatedArticle);
+    } catch (error) {
+        console.error(error);
+        res.send({errorMsg: error})
     }
 });
 

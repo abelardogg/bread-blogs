@@ -1,6 +1,13 @@
 // Bring Mongoose into the app 
 var mongoose = require( 'mongoose' ); 
  
+// deprecation fixes
+// https://mongoosejs.com/docs/deprecations.html
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
 // Build the connection string 
 var dbURI = process.env.MONGO_CONNECTION_STRING; 
  
